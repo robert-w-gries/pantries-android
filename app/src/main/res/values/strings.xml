@@ -1,4 +1,5 @@
 <resources>
+    <string name="about">About Us</string>
     <string name="address">Address</string>
     <string name="app_name">Durham Food Resources</string>
     <string name="availability">Availability</string>

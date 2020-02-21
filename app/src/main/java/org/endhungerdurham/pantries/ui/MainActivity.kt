@@ -64,6 +64,11 @@ class MainActivity : AppCompatActivity(), OnListFragmentInteractionListener {
             true
         }
 
+        R.id.action_about -> {
+            // about us
+            true
+        }
+
         else -> super.onOptionsItemSelected(item)
     }
 
@@ -72,6 +77,11 @@ class MainActivity : AppCompatActivity(), OnListFragmentInteractionListener {
 
         menuInflater.inflate(R.menu.main_menu, menu)
         title = getString(R.string.app_name)
+
+        val aboutItem = menu?.findItem(R.id.action_about)
+        val aboutIcon = ContextCompat.getDrawable(this, R.drawable.ic_info_24px)
+        setColorFilter(aboutIcon, ContextCompat.getColor(this, R.color.menu))
+        aboutItem?.icon = aboutIcon
 
         val refreshItem = menu?.findItem(R.id.action_refresh)
         val refreshIcon = ContextCompat.getDrawable(this, R.drawable.ic_baseline_cached_24px)
@@ -89,16 +99,19 @@ class MainActivity : AppCompatActivity(), OnListFragmentInteractionListener {
             searchView.setQuery(mSearchQuery, false)
             searchView.clearFocus()
             refreshItem?.isVisible = false
+            aboutItem?.isVisible = false
         }
 
         searchItem.setOnActionExpandListener(object : MenuItem.OnActionExpandListener {
             override fun onMenuItemActionCollapse(item: MenuItem): Boolean {
+                aboutItem?.isVisible = true
                 refreshItem?.isVisible = true
                 invalidateOptionsMenu()
                 return true
             }
 
             override fun onMenuItemActionExpand(item: MenuItem): Boolean {
+                aboutItem?.isVisible = false
                 refreshItem?.isVisible = false
                 invalidateOptionsMenu()
                 return true
