@@ -8,6 +8,7 @@
     <string name="info">Additional Info</string>
     <string name="map">Map</string>
     <string name="list">List</string>
+    <string name="pantries_api_url">http://localhost:8000/</string>
     <string name="pantries_json_url">https://raw.githubusercontent.com/end-hunger-durham/data-importer/master/pantries.json</string>
     <string name="qualifications">Qualifications</string>
     <string name="search">Search</string>
